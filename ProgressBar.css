@@ -1,0 +1,136 @@
+.progress-container {
+  width: 100%;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.progress-label {
+  font-weight: 500;
+  color: #333;
+}
+
+.progress-percentage {
+  font-weight: 600;
+  color: #666;
+  font-size: 0.9em;
+}
+
+.progress-bar-container {
+  width: 100%;
+  background-color: #e9ecef;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-container.size-small .progress-bar-container {
+  height: 6px;
+  border-radius: 3px;
+}
+
+.progress-container.size-medium .progress-bar-container {
+  height: 10px;
+  border-radius: 5px;
+}
+
+.progress-container.size-large .progress-bar-container {
+  height: 16px;
+  border-radius: 8px;
+}
+
+.progress-bar {
+  height: 100%;
+  transition: width 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar.animated {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.15) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 1rem 1rem;
+  animation: progressStripes 1s linear infinite;
+}
+
+.progress-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: progressShine 2s infinite;
+}
+
+/* 顏色主題 */
+.color-primary .progress-bar {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+}
+
+.color-success .progress-bar {
+  background: linear-gradient(135deg, #28a745, #1e7e34);
+}
+
+.color-warning .progress-bar {
+  background: linear-gradient(135deg, #ffc107, #e0a800);
+}
+
+.color-danger .progress-bar {
+  background: linear-gradient(135deg, #dc3545, #c82333);
+}
+
+/* 動畫 */
+@keyframes progressStripes {
+  0% {
+    background-position: 1rem 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@keyframes progressShine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .progress-header {
+    margin-bottom: 0.25rem;
+  }
+  
+  .progress-label {
+    font-size: 0.9rem;
+  }
+  
+  .progress-percentage {
+    font-size: 0.8rem;
+  }
+  
+  .progress-container.size-large .progress-bar-container {
+    height: 12px;
+  }
+}
